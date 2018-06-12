@@ -10,19 +10,19 @@ import { menuItems, projectItems } from './data/';
 import './App.css';
 
 class App extends Component {
-	render() {
-		return (
-			<Router>
-				<Home path="/" menuItems={menuItems} />
-				<Projects path="projects" items={projectItems} />
-			</Router>
-		);
-	}
+  render() {
+    return (
+      <Router>
+        <Home path="/" menuItems={menuItems} />
+        <Projects path="projects" items={projectItems} />
+      </Router>
+    );
+  }
 }
 
 App.propTypes = {
-	menuItems: PropTypes.array,
-	projectItems: PropTypes.array,
+  menuItems: PropTypes.array,
+  projectItems: PropTypes.array,
 };
 
 export default App;
