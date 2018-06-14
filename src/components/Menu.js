@@ -23,13 +23,13 @@ const Menu = ({ items }) => (
   <Nav>
     <ul>
       {items.map(
-        item =>
+        (item, key) =>
           item.isProjects ? (
-            <NavItem key={item.title}>
+            <NavItem key={key}>
               <Link to="projects">{item.title}</Link>
             </NavItem>
           ) : (
-            <NavItem key={item.title}>
+            <NavItem key={key}>
               <a href={item.href} aria-label={item.label} target="_blank">
                 {item.title}
               </a>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Image from './Image';
 import { fadeIn } from '../lib/animations';
 
 const Container = styled.ul`
@@ -18,12 +19,6 @@ const Item = styled.li`
   margin-bottom: 25px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   animation: ${fadeIn} 5s ease;
-`;
-
-const Image = styled.img`
-  display: block;
-  text-align: center;
-  width: 100%;
 `;
 
 const Overlay = styled.a`
@@ -49,9 +44,10 @@ const Description = styled.p``;
 
 const Project = ({ items }) => (
   <Container>
-    {items.map(item => (
-      <Item key={item.title}>
+    {items.map((item, key) => (
+      <Item key={key}>
         <Image src={item.src} alt={item.alt} />
+
         <Overlay href={item.href} target="_blank">
           <Title>{item.title}</Title>
           <Tag>{`Built at ${item.company}`}</Tag>
