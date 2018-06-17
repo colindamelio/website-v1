@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Image from './Image';
@@ -22,41 +22,55 @@ const Item = styled.li`
 `;
 
 const Overlay = styled.a`
-  display: flex;
+  display: ${props => (props.loaded ? 'flex' : 'none')}
   flex-direction: column;
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  color: #272727;
   background: rgba(255, 255, 255, 0.9);
   padding: 15px;
 `;
-
-const Title = styled.h2``;
 
 const Tag = styled.h3`
   font-size: 13px;
   margin-top: 0;
 `;
 
+const Title = styled.h2``;
 const Description = styled.p``;
 
-const Project = ({ items }) => (
-  <Container>
-    {items.map((item, key) => (
-      <Item key={key}>
-        <Image src={item.src} alt={item.alt} />
+class Project extends Component {
+  state = {
+    imageLoaded: false,
+  };
 
-        <Overlay href={item.href} target="_blank">
-          <Title>{item.title}</Title>
-          <Tag>{`Built at ${item.company}`}</Tag>
-          <Description>{item.desc}</Description>
-        </Overlay>
-      </Item>
-    ))}
-  </Container>
-);
+  renderImage = () => {
+    this.setState({
+      imageLoaded: true,
+    });
+  };
+
+  render() {
+    const { items } = this.props;
+    const { imageLoaded } = this.state;
+    return (
+      <Container>
+        {items.map((item, key) => (
+          <Item key={key}>
+            <Image src={item.src} alt={item.alt} onLoad={this.renderImage} />
+
+            <Overlay href={item.href} target="_blank" loaded={imageLoaded}>
+              <Title>{item.title}</Title>
+              <Tag>{`Built at ${item.company}`}</Tag>
+              <Description>{item.desc}</Description>
+            </Overlay>
+          </Item>
+        ))}
+      </Container>
+    );
+  }
+}
 
 Project.propTypes = {
   items: PropTypes.array,
