@@ -62,7 +62,7 @@ class Project extends Component {
 
             <Overlay href={item.href} target="_blank" loaded={imageLoaded}>
               <Title>{item.title}</Title>
-              <Tag>{`Built at ${item.company}`}</Tag>
+              {item.company && <Tag>{`Built at ${item.company}`}</Tag>}
               <Description>{item.desc}</Description>
             </Overlay>
           </Item>

@@ -1,3 +1,4 @@
+import saraswati from '../assets/saraswati.jpg';
 import acura from '../assets/acura_homepage.png';
 import acuraBap from '../assets/acura_bap.png';
 import hondaBap from '../assets/honda_bap.png';
@@ -28,6 +29,14 @@ export const menuItems = [
 ];
 
 export const projectItems = [
+  {
+    title: 'Saraswati Bali Retreats',
+    href: 'http://saraswatibali.com/#/',
+    src: saraswati,
+    alt: 'Screen capture of the Saraswati Bali Retreats homepage',
+    desc:
+      'Built with React/React-Router, styled-components.',
+  },
   {
     title: 'Acura Homepage',
     href: 'https://www.acura.ca',
