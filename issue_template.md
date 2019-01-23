@@ -7,7 +7,7 @@ _A list of relevant files for this issue such as the exercise or the lesson note
 
 ---
 title: 'Issue:'
-labels: bug
+labels: bug, typo
 ---
 
 _Please provide any additional information that is relevant to the issue and its solution._ 😀
