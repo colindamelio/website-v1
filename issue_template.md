@@ -2,7 +2,7 @@
 name: Internal design work request
 about: Log work you need to be completed by the internal designer
 title: ''
-labels: bug
+labels: test
 assignees: ''
 
 ---
